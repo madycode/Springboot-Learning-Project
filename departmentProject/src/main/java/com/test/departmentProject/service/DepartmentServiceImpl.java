@@ -36,7 +36,8 @@ public class DepartmentServiceImpl
 	}
 
 	// Read operation
-	@Override public List<Department> fetchDepartmentList()
+	@Override 
+	public List<Department> fetchDepartmentList()
 	{
 		return (List<Department>)
 			departmentRepository.findAll();
@@ -100,5 +101,7 @@ public class DepartmentServiceImpl
 		
 		
 	}
+	
+	
 }
 

@@ -6,6 +6,7 @@ package com.test.departmentProject.service;
 //Importing required classes
 import java.util.List;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.test.departmentProject.entity.Department;
@@ -30,5 +31,7 @@ public interface DepartmentService {
 	void deleteDepartmentById(Long departmentId);
 	
 	 public Department getDepartmentById(Long departmentId) throws DepartmentNotFoundException ;
+	 
+	 
 }
 
