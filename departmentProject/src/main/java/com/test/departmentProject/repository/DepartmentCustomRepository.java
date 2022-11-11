@@ -10,4 +10,5 @@ import com.test.departmentProject.entity.Department;
 public interface DepartmentCustomRepository {
 
 	List<Department> findByDepartmentName(String deptName);
+	//public String doTransaction();
 }
