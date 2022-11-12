@@ -1,16 +1,5 @@
 package com.test.departmentProject.entity;
 
-//Java Program to Illustrate Department File
-
-//Annotations
-
-
-//Importing required classes
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,8 +10,18 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.Cache;
-
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+//Java Program to Illustrate Department File
+
+//Annotations
+
+
+//Importing required classes
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 
@@ -41,7 +40,7 @@ public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long departmentId;
-	
+
 	@NotNull
 	private String departmentName;
 	@NotNull
@@ -49,7 +48,7 @@ public class Department {
 	@NotNull
 	@Size(min=3, message="departmentCode should have atleast 3 characters")
 	private String departmentCode;
-	
+
 	//private String userName;
 	//private String password;.
 }

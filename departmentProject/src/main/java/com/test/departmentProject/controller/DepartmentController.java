@@ -3,23 +3,33 @@ package com.test.departmentProject.controller;
 //Java Program to Illustrate DepartmentController File
 
 import java.util.List;
+
 import javax.validation.Valid;
+
 //Importing required classes
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.test.departmentProject.api.security.entity.AuthRequest;
 import com.test.departmentProject.api.security.util.JwtUtil;
 import com.test.departmentProject.entity.Department;
-import com.test.departmentProject.repository.DepartmentCustomRepository;
 import com.test.departmentProject.service.DepartmentCustomService;
 import com.test.departmentProject.service.DepartmentNotFoundException;
 import com.test.departmentProject.service.DepartmentService;
+import com.test.departmentProject.service.UserPaymentService;
 
 //Annotation
 @RestController
@@ -40,6 +50,9 @@ public class DepartmentController {
 
 	@Autowired
 	private DepartmentService departmentService;
+
+	@Autowired
+	private UserPaymentService userPaymentService;
 
 	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping("/")
@@ -97,6 +110,12 @@ public class DepartmentController {
 	public ResponseEntity<Department> findByDepartmentName(
 			@PathVariable(value = "department_name") String department_name) {
 		return new ResponseEntity<>(departmentCustomService.findByDepartmentName(department_name), HttpStatus.OK);
+
+	}
+
+	@GetMapping("/payment")
+	public String getPayment() {
+		return userPaymentService.processPayment();
 
 	}
 

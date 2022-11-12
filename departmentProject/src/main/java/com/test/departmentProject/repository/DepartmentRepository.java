@@ -15,8 +15,8 @@ import com.test.departmentProject.entity.Department;
 //Interface
 public interface DepartmentRepository
 	extends JpaRepository<Department, Long>{
-	
+
 	//Department findByUserName(String departmentname);
-	
+
 }
 

@@ -7,6 +7,7 @@ package com.test.departmentProject.service;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,11 +37,10 @@ public class DepartmentServiceImpl
 	}
 
 	// Read operation
-	@Override 
+	@Override
 	public List<Department> fetchDepartmentList()
 	{
-		return (List<Department>)
-			departmentRepository.findAll();
+		return departmentRepository.findAll();
 	}
 
 	// Update operation
@@ -88,20 +88,20 @@ public class DepartmentServiceImpl
 	@Override
 	public Department getDepartmentById(Long departmentId) throws DepartmentNotFoundException {
 		// TODO Auto-generated method stub
-		
+
 		Department dept=departmentRepository.findById(departmentId).get();
-		
+
 		if(dept!=null) {
 			return dept;
 		}else {
 			throw new NoSuchElementException("Department not found with id : "+departmentId);
 		}
-	
+
 		//return departmentRepository.findById(departmentId).get();
-		
-		
+
+
 	}
-	
-	
+
+
 }
 
